@@ -16,8 +16,8 @@ intents.dm_messages = True
 
 bot = commands.Bot(command_prefix="!", intents=intents)
 
-CLIENT_ID = os.getenv("CLIENT_ID", "1469213868323504261")
-ALLOWED_GUILD_ID = 1322848585702838302  
+CLIENT_ID = os.getenv("CLIENT_ID", "1539268367276449843")
+ALLOWED_GUILD_ID = 1563896712810991658  
 
 @bot.event
 async def on_ready():
