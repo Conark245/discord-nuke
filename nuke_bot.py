@@ -18,8 +18,7 @@ async def on_ready():
     print(f'✅ Bot logged in as {bot.user}')
     print(f'Bot is ready to Use')
 
-@bot.command(name='help')
-bot.remove_command('help')
+@bot.command(name='nuke')
 async def nuke(ctx):
     """
     Complete server nuke command
