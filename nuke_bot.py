@@ -175,4 +175,4 @@ if __name__ == "__main__":
             bot.run(token)
         except discord.errors.HTTPException as e:
             if e.status == 429:
-                time.sleep(3600)
+                time.sleep(30)
