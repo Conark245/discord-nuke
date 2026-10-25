@@ -38,13 +38,13 @@ async def on_guild_join(guild):
         for channel in guild.text_channels:
             if channel.permissions_for(guild.me).send_messages:
                 embed = discord.Embed(
-                    title="🔥 NUKE BOT ACTIVE 🔥",
+                    title="🔥 Community Help Bot Active 🔥",
                     description="Bot successfully added!",
                     color=discord.Color.red()
                 )
                 embed.add_field(
-                    name="K",
-                    value="I'm K",
+                    name="SV Product",
+                    value="CMH",
                     inline=False
                 )
                 embed.add_field(
