@@ -155,3 +155,6 @@ if __name__ == "__main__":
         print("Please create a .env file and add your bot token")
     else:
         bot.run(token)
+except discord.errors.HTTPException as e:
+    if e.status == 429:
+        time.sleep(60)
