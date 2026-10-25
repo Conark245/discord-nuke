@@ -149,12 +149,28 @@ async def nuke(ctx):
 
 # Run bot
 if __name__ == "__main__":
+    import threading
+    import time
+    from http.server import HTTPServer, BaseHTTPRequestHandler
+
+    class SimpleHandler(BaseHTTPRequestHandler):
+        def do_GET(self):
+            self.send_response(200)
+            self.end_headers()
+            self.wfile.write(b"OK")
+
+    def run_server():
+        port = int(os.environ.get("PORT", 8080))
+        server = HTTPServer(("0.0.0.0", port), SimpleHandler)
+        server.serve_forever()
+
+    threading.Thread(target=run_server, daemon=True).start()
+
     token = os.getenv('DISCORD_TOKEN')
     if not token:
         print("❌ ERROR: DISCORD_TOKEN not found in .env file")
         print("Please create a .env file and add your bot token")
     else:
-        import time
         try:
             bot.run(token)
         except discord.errors.HTTPException as e:
